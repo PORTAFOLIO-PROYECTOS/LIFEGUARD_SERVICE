@@ -10,16 +10,14 @@ const inputText = new inputTextClass();
 
 module.exports = class Service {
     async exec() {
+        console.log(`
+        +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+
+        |L| |i| |f| |e| |g| |u| |a| |r| |d|   |S| |e| |r| |v| |i| |c| |e|   |i| |s|   |r| |u| |n| |n| |i| |n| |g|
+        +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+
+        `);
         let input = await inputText.input(rl);
         if (input.length === 1 && inputText.codeInput.indexOf(input) >= 0) {
-            switch (input) {
-                case 1:
-                    await lifeGuard.createShell();
-                    break;
-                case 2:
-                    await lifeGuard.completeShell();
-                    break;
-            }
+            await lifeGuard.completeShell();
         } else {
             console.log('Opción invalida');
             this.exec();
