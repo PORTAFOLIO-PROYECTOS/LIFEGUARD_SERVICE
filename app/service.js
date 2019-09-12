@@ -11,9 +11,9 @@ const inputText = new inputTextClass();
 module.exports = class Service {
     async exec() {
         console.log(`
-        +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+
-        |L| |i| |f| |e| |g| |u| |a| |r| |d|   |S| |e| |r| |v| |i| |c| |e|   |i| |s|   |r| |u| |n| |n| |i| |n| |g|
-        +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+
++-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+
+|L| |i| |f| |e| |g| |u| |a| |r| |d|   |S| |e| |r| |v| |i| |c| |e|   |i| |s|   |r| |u| |n| |n| |i| |n| |g|
++-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+
         `);
         let input = await inputText.input(rl);
         if (input.length === 1 && inputText.codeInput.indexOf(input) >= 0) {
