@@ -1,7 +1,7 @@
 const serviceClass = require('./app/service');
 const service = new serviceClass();
-const connectionMongo = require('./poolConnectionMongo');
-const connectionES = require('./poolConnectionES');
+const connectionMongo = require('./app/utils/poolConnectionMongo');
+const connectionES = require('./app/utils/poolConnectionES');
 
 connectionMongo.fetchAllDbs().then(() => {
     console.log("✓ correctamente => conexiones Mongo");

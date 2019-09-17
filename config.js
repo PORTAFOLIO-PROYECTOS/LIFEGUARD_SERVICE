@@ -17,8 +17,8 @@ const config = {
             database: 'BelcorpPanama',
         },
         CO: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpColombia_GANAMAS',
+            connectionString: 'mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD01-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD01-shard-0&authSource=admin',
+            database: 'BelcorpColombia',
         },
         BO: {
             connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',

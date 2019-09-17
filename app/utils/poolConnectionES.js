@@ -1,5 +1,5 @@
 const elastic = require("elasticsearch");
-const config = require("./config");
+const config = require("../../config");
 
 class PoolConnectionES {
     constructor() {
