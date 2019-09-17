@@ -27,17 +27,12 @@ class PoolConnectionMongo {
     getDbAsync(codigoPais) {
 
         return new Promise((resolve, reject) => {
-            console.log(codigoPais);
-
             if (this._dbMap[codigoPais]) {
                 resolve(this._dbMap[codigoPais]);
             } else {
-                console.log(config.mongodb[codigoPais].connectionString);
-                console.log(config.mongodb[codigoPais].database);
-
                 mongoClient.connect(config.mongodb[codigoPais].connectionString, { useNewUrlParser: true })
                     .then(client => {
-                        console.log(`Connected correctly to ${codigoPais} database server`);
+                        //console.log(`Connected correctly to ${codigoPais} database server`);
 
                         this._dbMap[codigoPais] = client.db(config.mongodb[codigoPais].database);
                         resolve(this._dbMap[codigoPais]);

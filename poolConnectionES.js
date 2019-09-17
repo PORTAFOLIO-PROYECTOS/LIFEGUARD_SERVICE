@@ -31,7 +31,7 @@ class PoolConnectionES {
                         host: `${host}`,
                         log: `${log}`
                     });
-                    console.log("successful connection to elasticsearch =>", codigoPais);
+                    //console.log("successful connection to elasticsearch =>", codigoPais);
                     resolve(this.connection[codigoPais]);
                 }
             } catch (error) {
@@ -43,11 +43,12 @@ class PoolConnectionES {
 
     createConnection() {
         let promise = [];
-        let paisesHabilitados = config.constantes.paisesHabilitados;
+        //let paisesHabilitados = config.constantes.paisesHabilitados;
 
         for (const key in config.elasticsearch) {
             if (config.elasticsearch.hasOwnProperty(key)) {
-                if (paisesHabilitados.indexOf(key) >= 0) promise.push(this.getConnectionAsync(key));
+                //if (paisesHabilitados.indexOf(key) >= 0) 
+                promise.push(this.getConnectionAsync(key));
             }
         }
 

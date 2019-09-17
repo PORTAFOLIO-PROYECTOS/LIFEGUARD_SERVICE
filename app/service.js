@@ -12,7 +12,7 @@ module.exports = class Service {
     async exec() {
         
         let input = await inputText.input(rl);
-        console.log('input',input);
+        
         input = input.split('|');
         let params = {
             pais: input[0],
