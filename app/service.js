@@ -10,14 +10,15 @@ module.exports = class Service {
         
         input = input.split('|');
         let params = {
-            pais: input[0],
-            campania: input[1],
-            palanca: input[2]
+            pais: input[0].toUpperCase(),
+            campania: input[1].toString(),
+            palanca: input[2].toUpperCase(),
+            cola: input[3]
         };
 
         let res = await lifeGuard.completeShell(params);
         console.log(res);
 
-        this.exec();
+        //this.exec();
     }
 }

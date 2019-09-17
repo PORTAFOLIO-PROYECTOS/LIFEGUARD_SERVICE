@@ -21,13 +21,3 @@ connectionMongo.fetchAllDbs().then(() => {
 }, () => { console.log('Ocurrió algo al tratar de conectar a Mongo'); }).catch((error) => {
     console.log(error);
 });
-
-/*console.log(`
-
-         ──▒▒▒▒▒▒───▄████▄
-         ─▒─▄▒─▄▒──███▄█▀
-         ─▒▒▒▒▒▒▒─▐████──█─█  L I F E G U A R D  S E R V I C E  I S  R U N N I N G !
-         ─▒▒▒▒▒▒▒──█████▄
-         ─▒─▒─▒─▒───▀████▀
-
-        `);*/

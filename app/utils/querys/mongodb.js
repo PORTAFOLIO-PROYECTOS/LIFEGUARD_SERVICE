@@ -1,8 +1,8 @@
 const queryMongo = {
     estrategiaCuv: (campania, palanca) => {
         return {
-            CodigoCampania: campania.toString(),
-            TipoPersonalizacion: palanca.toString(),
+            CodigoCampania: campania,
+            TipoPersonalizacion: palanca,
             FlagConfig: true,
             Activo: true
         }

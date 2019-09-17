@@ -11,7 +11,7 @@ module.exports = class InputText {
 
     async input() {
         return new Promise((resolve, reject) => {
-            this.rl.question(`Ingresa el país, campaña y palanca (ejem. PE|201919|ODD) => \n`, (input) => { resolve(input); });
+            this.rl.question(`Ingresa el país, campaña, palanca y cola (ejem. PE|201919|ODD|5) => `, (input) => { resolve(input); });
         });
     }
 }
