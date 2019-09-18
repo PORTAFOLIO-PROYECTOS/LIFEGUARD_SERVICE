@@ -1,5 +1,5 @@
 const queryElasticsearch = {
-    cuv: (palanca) => {
+    cuv: (palanca, cuv) => {
         return {
             query: {
                 bool: {
@@ -14,6 +14,11 @@ const queryElasticsearch = {
                         {
                             term: {
                                 tipoPersonalizacion: palanca
+                            }
+                        },
+                        {
+                            term:{
+                                cuv: cuv
                             }
                         }
                     ]
