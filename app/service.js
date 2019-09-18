@@ -10,7 +10,7 @@ module.exports = class Service {
         let params = {
             pais: 'PE',
             campania: '201914',
-            palanca: 'SR',
+            palanca: 'ODD',
             cola: 5
         };
 
