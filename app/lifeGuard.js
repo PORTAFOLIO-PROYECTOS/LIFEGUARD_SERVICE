@@ -16,22 +16,26 @@ module.exports = class LifeGuard {
 
         let array = this.chunkArray(documento, params.chunk);
 
-        await this.asyncForEach(array, async(item) =>{
+        await this.asyncForEach(array, async (item) => {
             let tareas = [];
-            let tareasCompletas = [];
             let terminado = false;
 
             for (let i = 0; i < array.length; i++) {
-                const element = array[i];
-                tareas.push("");
+                //const element = array[i];
+                tareas.push({ taskId: '', complete: false });
             }
 
             if (terminado) {
-                while (!tareasCompletas.every(x => x === true)) {
-                    
+                while (!tareas.every(x => x.complete === true)) {
+                    for (let j = 0; j < tareas.length; j++) {
+                        const element = tareas[j];
+                        
+                        let taskIndex = tareas.indexOf(x => x.task === element.taskId);
+                        if (task>=0) tareas[taskIndex].complete = res.completed;
+                    }
                 }
             }
-            
+
         });
 
         await this.asyncForEach(documento, async (item) => {
@@ -85,9 +89,9 @@ module.exports = class LifeGuard {
         return [];
     }
 
-    chunkArray(array, chunk_size){
+    chunkArray(array, chunk_size) {
         let result = [];
-        while (array.length){
+        while (array.length) {
             result.push(array.splice(0, chunk_size));
         }
         return result;
@@ -110,7 +114,7 @@ module.exports = class LifeGuard {
         }
     }
 
-    async task(params, task){
+    async task(params, task) {
         return await connectionES.getClient(params.pais).tasks.get({
             taskId: task
         });
@@ -119,7 +123,7 @@ module.exports = class LifeGuard {
     async update(params, body) {
         let elasticPais = config.elasticsearch[params.pais];
         let index = `${elasticPais.index}_${params.pais.toLowerCase()}_${params.campania}`;
-        
+
         let request = {
             index,
             type: "_doc",
@@ -127,14 +131,14 @@ module.exports = class LifeGuard {
             waitForCompletion: false,
             conflicts: "proceed"
         };
-        
+
         return new Promise((resolve, reject) => {
             connectionES.getClient(params.pais).updateByQuery(request, (err, data) => {
                 if (err) reject(err);
                 resolve(data);
             });
         });
-    }  
+    }
 
     eliminarDuplicados(texto) {
         return texto.split(" ").filter(function (allItems, i, a) {
