@@ -6,17 +6,33 @@ const config = require('./../config');
 
 module.exports = class LifeGuard {
     async completeShell(params) {
-        console.log('Procesando...');
-
         let contador = 0;
         let mongoClient = connectionMongo.getDb(params.pais);
         let estrategia = mongoClient.collection('Estrategia');
         let queryMongoEstrategia = queryMongo.estrategiaAll(params.campania, params.palanca);
         let documento = await estrategia.aggregate(queryMongoEstrategia).toArray();
 
-        console.log(`Existen ${documento.length} cuv(s) en mongo`);
+        console.log(`> Existen ${documento.length} cuv(s) activos en mongo`);
 
-        console.log('Empieza validación Cuv');
+        let array = this.chunkArray(documento, params.chunk);
+
+        await this.asyncForEach(array, async(item) =>{
+            let tareas = [];
+            let tareasCompletas = [];
+            let terminado = false;
+
+            for (let i = 0; i < array.length; i++) {
+                const element = array[i];
+                tareas.push("");
+            }
+
+            if (terminado) {
+                while (!tareasCompletas.every(x => x === true)) {
+                    
+                }
+            }
+            
+        });
 
         await this.asyncForEach(documento, async (item) => {
             let queryValidaCuv = queryES.cuv(params.palanca, item.cuv);
@@ -67,6 +83,14 @@ module.exports = class LifeGuard {
         console.log('Proceso terminado...');
 
         return [];
+    }
+
+    chunkArray(array, chunk_size){
+        let result = [];
+        while (array.length){
+            result.push(array.splice(0, chunk_size));
+        }
+        return result;
     }
 
     async ejecutaQueryElastic(params, body) {

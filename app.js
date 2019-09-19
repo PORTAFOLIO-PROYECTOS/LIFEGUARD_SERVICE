@@ -8,9 +8,6 @@ connectionMongo.fetchAllDbs().then(() => {
 
     connectionES.createConnection().then(() => {
         console.log("✓ correctamente => conexiones Elasticsearch");
-
-        console.log('\nL I F E G U A R D  S E R V I C E  I S  R U N N I N G !\n');
-
         service.exec();
 
     }, () => {

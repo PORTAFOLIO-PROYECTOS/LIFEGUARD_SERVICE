@@ -9,14 +9,16 @@ module.exports = class Service {
         //input = input.split('|');
         let params = {
             pais: 'PE',
-            campania: '201914',
+            campania: '201915',
             palanca: 'ODD',
-            cola: 5
+            chunk: 2
         };
 
+        console.log('> Iniciando');
+        console.log('> Parametros', JSON.stringify(params));
         let res = await lifeGuard.completeShell(params);
-        console.log(res);
-
+        console.log('> Terminado', res);
+        
         //this.exec();
     }
 }
