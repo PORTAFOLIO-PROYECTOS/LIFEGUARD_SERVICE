@@ -1,6 +1,21 @@
 const config = require('./../../config');
 
 module.exports = class Utils {
+
+    async asyncForEach(array, callback) {
+        for (let i = 0; i < array.length; i++) {
+            await callback(array[i], i, array);
+        }
+    }
+    
+    chunkArray(array, chunk_size) {
+        let result = [];
+        while (array.length) {
+            result.push(array.splice(0, chunk_size));
+        }
+        return result;
+    }
+
     eliminarDuplicados(texto) {
         return texto.split(" ").filter(function (allItems, i, a) {
             return i == a.indexOf(allItems);
