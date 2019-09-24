@@ -8,9 +8,9 @@ module.exports = class Service {
         
         //input = input.split('|');
         let params = {
-            pais: 'PE',
-            campania: '201915',
-            palanca: 'ODD',
+            pais: 'CL',
+            campania: '201914',
+            palanca: 'OPM',
             chunk: 2
         };
 

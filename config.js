@@ -57,7 +57,7 @@ const config = {
             type: "_doc"
         },
         CL: {
-            host: "https://vpc-es-sbsearch-ppr-rnioiss6o347c74q4w2u7w2uhu.us-east-1.es.amazonaws.com/",
+            host: "https://vpc-es-sbsearch-prd-a5xq7pyb6cvphjra33ojtejvwa.us-east-1.es.amazonaws.com/",
             log: "",
             index: "producto_v2",
             type: "_doc"
@@ -69,7 +69,7 @@ const config = {
             type: "_doc"
         },
         CR: {
-            host: "https://vpc-es-sbsearch-qa-6lqloaf2kfljixcaekbyqxu2aa.us-east-1.es.amazonaws.com/",
+            host: "https://vpc-es-sbsearch-prd-a5xq7pyb6cvphjra33ojtejvwa.us-east-1.es.amazonaws.com/",
             log: "",
             index: "producto_v2",
             type: "_doc"
