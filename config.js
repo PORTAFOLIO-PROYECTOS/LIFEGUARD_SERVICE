@@ -1,53 +1,53 @@
 const config = {
     mongodb: {
         PE: {
-            connectionString: 'mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD02-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD02-shard-0&authSource=admin',
-            database: 'BelcorpPeru',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD02-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD02-shard-0&authSource=admin",
+            database: "BelcorpPeru"
         },
         CL: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpChile_GANAMAS',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD02-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD02-shard-0&authSource=admin",
+            database: "BelcorpChile"
         },
         GT: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpGuatemala',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD02-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD02-shard-0&authSource=admin",
+            database: "BelcorpGuatemala"
         },
         PA: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpPanama',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD02-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD02-shard-0&authSource=admin",
+            database: "BelcorpPanama"
         },
         CO: {
-            connectionString: 'mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD01-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD01-shard-0&authSource=admin',
-            database: 'BelcorpColombia',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD01-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD01-shard-0&authSource=admin",
+            database: "BelcorpColombia"
         },
         BO: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpBolivia',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD01-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD01-shard-0&authSource=admin",
+            database: "BelcorpBolivia"
         },
         SV: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpSalvador',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD01-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD01-shard-0&authSource=admin",
+            database: "BelcorpSalvador"
         },
         PR: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpPuertoRico',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD01-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD01-shard-0&authSource=admin",
+            database: "BelcorpPuertoRico"
         },
         MX: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpMexico_GANAMAS',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD03-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD03-shard-0&authSource=admin",
+            database: "BelcorpMexico"
         },
         EC: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpEcuador_GANAMAS',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD03-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD03-shard-0&authSource=admin",
+            database: "BelcorpEcuador"
         },
         DO: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpDominicana',
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD03-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD03-shard-0&authSource=admin",
+            database: "BelcorpDominicana"
         },
         CR: {
-            connectionString: 'mongodb+srv://usrmongotdapp:Mongo2018@personalizacionqas-xfhrx.mongodb.net',
-            database: 'BelcorpCostaRica_GANAMAS',
-        },
+            connectionString: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD03-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD03-shard-0&authSource=admin",
+            database: "BelcorpCostaRica"
+        }
     },
     elasticsearch: {
         BO: {

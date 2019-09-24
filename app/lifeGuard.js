@@ -18,9 +18,9 @@ module.exports = class LifeGuard {
         await utils.asyncForEach(array, async (item) => {
             let tareas = [];
 
-            for (let i = 0; i < array.length; i++) {
-                const element = array[i];
-                let validacion = elasticsearch.validacion(params, element.cuv);
+            for (let i = 0; i < item.length; i++) {
+                const element = item[i];
+                let validacion = await elasticsearch.validacion(params, element.cuv);
 
                 if (!validacion) tareas.push({ taskId: '', complete: true });
                 else {
