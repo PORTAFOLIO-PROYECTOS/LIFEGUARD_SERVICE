@@ -99,7 +99,7 @@ const config = {
             type: "_doc"
         },
         PA: {
-            host: "https://vpc-es-sbsearch-qa-6lqloaf2kfljixcaekbyqxu2aa.us-east-1.es.amazonaws.com/",
+            host: "https://vpc-es-sbsearch2-prd-zy7ytdwgfleiwpive3meis5lzy.us-east-1.es.amazonaws.com/",
             log: "",
             index: "producto_v2",
             type: "_doc"

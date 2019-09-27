@@ -22,7 +22,7 @@ module.exports = class LifeGuard {
                 const element = item[i];
                 let validacion = await elasticsearch.validacion(params, element.cuv);
 
-                if (!validacion) tareas.push({ taskId: '', complete: true });
+                if (!validacion) tareas.push({ taskId: '', completed: true });
                 else {
                     console.log('> CUV =>', element.cuv);
                     element.textoBusqueda = element.descripcion + " " + utils.eliminarDuplicados(element.textoBusqueda);
@@ -34,9 +34,9 @@ module.exports = class LifeGuard {
                         getParams: utils.getParams(element)
                     }
 
-                    let taskId = await this.update(params, element._id, updateParams);
+                    let taskId = await elasticsearch.update(params, element._id, updateParams);
 
-                    tareas.push({ taskId: taskId.task, complete: false });
+                    tareas.push({ taskId: taskId.task, completed: false });
 
                     console.log('> Se envio a elastic task =>', taskId.task);
 
@@ -44,12 +44,12 @@ module.exports = class LifeGuard {
                 }
             }
 
-            while (!tareas.every(x => x.complete === true)) {
+            while (!tareas.every(x => x.completed === true)) {
                 for (let j = 0; j < tareas.length; j++) {
                     const element = tareas[j];
-                    if (!element.complete) {
-                        let resTask = elasticsearch.obtenerTask(params, element.taskId);
-                        element.complete = resTask.complete;
+                    if (!element.completed) {
+                        let resTask = await elasticsearch.obtenerTask(params, element.taskId);
+                        element.completed = resTask.completed;
                     }
                 }
             }
