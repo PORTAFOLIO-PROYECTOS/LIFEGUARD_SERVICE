@@ -37,7 +37,7 @@ class PoolConnectionMongo {
                         this._dbMap[codigoPais] = client.db(config.mongodb[codigoPais].database);
                         resolve(this._dbMap[codigoPais]);
                     }, (response) => {
-                        console.log(`Could not establish connection with ${codigoPais} database server`);
+                        console.log(`No se pudo establecer conexión con ${codigoPais} database server Mongo`);
                         reject(response);
                     })
                     .catch(err => {
