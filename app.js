@@ -1,20 +1,11 @@
-const serviceClass = require('./app/service');
-const service = new serviceClass();
-const connectionMongo = require('./app/utils/poolConnectionMongo');
-const connectionES = require('./app/utils/poolConnectionES');
+const Service = require("./app/service");
+const _service = new Service();
 
-connectionMongo.fetchAllDbs().then(() => {
-    console.log("✓ correctamente => conexiones Mongo");
+let params = {
+    pais: "PE",
+    campania: "201915",
+    palanca: "SR",
+    chunk: 5
+};
 
-    connectionES.createConnection().then(() => {
-        console.log("✓ correctamente => conexiones Elasticsearch");
-        service.exec();
-
-    }, () => {
-        console.log("Ocurrió algo al tratar de conectar a Mongo");
-    }).catch((error) => {
-        console.log(error);
-    });
-}, () => { console.log('Ocurrió algo al tratar de conectar a Mongo'); }).catch((error) => {
-    console.log(error);
-});
+_service.exec(params);
