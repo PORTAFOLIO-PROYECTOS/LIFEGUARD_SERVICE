@@ -1,12 +1,18 @@
-const lifeGuardClass = require('./lifeGuard');
-const lifeGuard = new lifeGuardClass();
+const LifeGuardClass = require("./lifeGuard");
+const _lifeGuard = new LifeGuardClass();
+
+const ConnectionMongo = require("../connectionMongo");
+const ConnectionElastic = require("../connectionElastic");
 
 module.exports = class Service {
     async exec(params) {
         console.log(`> Iniciando`);
-        //conexion
+        // se crea conexiones una sola vez para mongo y elastic
+        await ConnectionMongo.createConnection(params.pais);
+        await ConnectionElastic.createConnection(params.pais);
+
         console.log(`> Parametros ${JSON.stringify(params)}`);
-        let res = await lifeGuard.completeShell(params);
+        let res = await _lifeGuard.completeShell(params);
         console.log(`> Terminado ${res}`);
         
         //this.exec();
