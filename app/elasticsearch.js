@@ -51,9 +51,11 @@ module.exports = class Elasticsearch {
 
         return new Promise((resolve, reject) => {
             ConnectionElastic.getConnection().updateByQuery(request, (err, data) => {
-                if (err) reject(err);
+                if (err) {
+                    reject(err);
+                }
                 resolve(data);
             });
         });
     }
-}
+};

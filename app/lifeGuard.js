@@ -1,11 +1,10 @@
 const Mongo = require("./mongo");
 const _mongo = new Mongo;
 
-const Elasticsearch = require('./elasticsearch');
+const Elasticsearch = require("./elasticsearch");
 const _elasticsearch = new Elasticsearch();
 
-const queryES = require('./utils/querys/elasticsearch');
-const Utils = require('./utils/utils');
+const Utils = require("./utils/utils");
 const _utils = new Utils();
 
 module.exports = class LifeGuard {
@@ -24,9 +23,9 @@ module.exports = class LifeGuard {
                 const element = item[i];
                 let validacion = await _elasticsearch.validacion(params, element.cuv);
 
-                if (!validacion) tareas.push({ taskId: '', completed: true });
+                if (!validacion) tareas.push({ taskId: "", completed: true });
                 else {
-                    console.log('> CUV =>', element.cuv);
+                    console.log("> CUV =>", element.cuv);
                     element.textoBusqueda = element.descripcion + " " + _utils.eliminarDuplicados(element.textoBusqueda);
                     element.orden = _utils.obtenerOrden(element.tipoPersonalizacion);
                     element.seccion = _utils.obtenerSeccion(element.tipoPersonalizacion, params.pais);
@@ -40,7 +39,7 @@ module.exports = class LifeGuard {
 
                     tareas.push({ taskId: taskId.task, completed: false });
 
-                    console.log('> Se envio a elastic task =>', taskId.task);
+                    console.log("> Se envio a elastic task =>", taskId.task);
 
                     contador++;
                 }
@@ -61,4 +60,4 @@ module.exports = class LifeGuard {
 
         return contador;
     }
-}
+};

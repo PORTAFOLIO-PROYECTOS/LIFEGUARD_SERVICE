@@ -56,7 +56,7 @@ class ConnectionMongo {
         return await this.createConnectionAsync(pais)
             .then(
                 () => { console.log("✓ correctamente => conexión Mongo"); },
-                () => { console.log('Ocurrió algo al tratar de conectar a Mongo'); })
+                () => { console.log("Ocurrió algo al tratar de conectar a Mongo"); })
             .catch((error) => {
                 console.log(error);
             });

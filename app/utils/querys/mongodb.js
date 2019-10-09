@@ -209,6 +209,6 @@ const queryMongo = {
             }
         ];
     }
-}
+};
 
 module.exports = queryMongo;

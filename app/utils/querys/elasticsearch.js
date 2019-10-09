@@ -26,6 +26,6 @@ const queryElasticsearch = {
             }
         }
     }
-}
+};
 
 module.exports = queryElasticsearch;

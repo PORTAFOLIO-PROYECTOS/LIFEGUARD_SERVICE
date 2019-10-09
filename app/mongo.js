@@ -8,4 +8,4 @@ module.exports = class Mongo {
         let queryMongoEstrategia = queryMongo.estrategiaAll(params.campania, params.palanca);
         return await estrategia.aggregate(queryMongoEstrategia).toArray();
     }
-}
+};
