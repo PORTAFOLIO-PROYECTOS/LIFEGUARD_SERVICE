@@ -10,11 +10,9 @@ module.exports = class Service {
         // se crea conexiones una sola vez para mongo y elastic
         await ConnectionMongo.createConnection(params.pais);
         await ConnectionElastic.createConnection(params.pais);
-
+        
         console.log(`> Parametros ${JSON.stringify(params)}`);
         let res = await _lifeGuard.completeShell(params);
         console.log(`> Terminado ${res}`);
-        
-        //this.exec();
     }
 }

@@ -33,6 +33,7 @@ const config = {
     elasticsearch: {
         indexName: "producto_",
         indexVersion: "v2",
+        type: "_doc",
         clusters: [{
                 host: "https://vpc-es-sbsearch-prd-a5xq7pyb6cvphjra33ojtejvwa.us-east-1.es.amazonaws.com/",
                 countries: ["CL", "CR", "PE"]

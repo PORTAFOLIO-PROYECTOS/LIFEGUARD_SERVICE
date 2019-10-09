@@ -59,4 +59,4 @@ class ConnectionElastic {
 
 const instance = new ConnectionElastic();
 Object.freeze(instance);
-module.exports = ConnectionElastic;
+module.exports = instance;

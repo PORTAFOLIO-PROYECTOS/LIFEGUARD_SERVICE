@@ -1,25 +1,25 @@
-const connectionES = require('../app/utils/poolConnectionES');
-const queryES = require('./utils/querys/elasticsearch');
-const config = require('./../config');
+const ConnectionElastic = require("../connectionElastic");
+const queryES = require("./utils/querys/elasticsearch");
+const { elasticsearch } = require("./../config");
 
 module.exports = class Elasticsearch {
 
     async validacion(params, cuv) {
         let body = queryES.cuv(params.palanca, cuv);
-        let elasticPais = config.elasticsearch[params.pais];
-        let index = `${elasticPais.index}_${params.pais.toLowerCase()}_${params.campania}`;
-        let type = elasticPais.type;
-        let resultado = await connectionES.getClient(params.pais).search({
+        let index = `${elasticsearch.indexName}${elasticsearch.indexVersion}_${params.pais.toLowerCase()}_${params.campania}`;
+
+        let resultado = await ConnectionElastic.getConnection().search({
             index,
-            type,
+            type: elasticsearch.type,
             body
         });
 
         return resultado.hits.total > 0 ? true : false;
     }
 
-    async obtenerTask(params, task) {
-        return await connectionES.getClient(params.pais).tasks.get({
+    async obtenerTask(task) {
+        
+        return await ConnectionElastic.getConnection().tasks.get({
             taskId: task
         });
     }
@@ -39,19 +39,18 @@ module.exports = class Elasticsearch {
             }
         };
 
-        let elasticPais = config.elasticsearch[params.pais];
-        let index = `${elasticPais.index}_${params.pais.toLowerCase()}_${params.campania}`;
+        let index = `${elasticsearch.indexName}${elasticsearch.indexVersion}_${params.pais.toLowerCase()}_${params.campania}`;
 
         let request = {
             index,
-            type: "_doc",
+            type: elasticsearch.type,
             body,
             waitForCompletion: false,
             conflicts: "proceed"
         };
 
         return new Promise((resolve, reject) => {
-            connectionES.getClient(params.pais).updateByQuery(request, (err, data) => {
+            ConnectionElastic.getConnection().updateByQuery(request, (err, data) => {
                 if (err) reject(err);
                 resolve(data);
             });
