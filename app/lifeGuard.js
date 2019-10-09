@@ -18,15 +18,20 @@ module.exports = class LifeGuard {
 
         await _utils.asyncForEach(array, async (item) => {
             let tareas = [];
+            
+            console.log("---------- INICIO =>", params.chunk, " ----------");
 
             for (let i = 0; i < item.length; i++) {
                 const element = item[i];
-                let validacion = await _elasticsearch.validacion(params, element.cuv);
+                let validacion = await _elasticsearch.validacion(params, element.cuv, element.tipoPersonalizacion);
+
+                console.log("Validacion cuv =>", element.cuv, element.tipoPersonalizacion, validacion);
 
                 if (!validacion) {
                     tareas.push({ taskId: "", completed: true });
                 } else {
                     console.log("> CUV =>", element.cuv);
+
                     element.textoBusqueda = element.descripcion + " " + _utils.eliminarDuplicados(element.textoBusqueda);
                     element.orden = _utils.obtenerOrden(element.tipoPersonalizacion);
                     element.seccion = _utils.obtenerSeccion(element.tipoPersonalizacion, params.pais);
@@ -50,14 +55,13 @@ module.exports = class LifeGuard {
                 for (let j = 0; j < tareas.length; j++) {
                     const element = tareas[j];
                     if (!element.completed) {
-                        let resTask = await _elasticsearch.obtenerTask(element.taskId, ...params);
+                        let resTask = await _elasticsearch.obtenerTask(element.taskId, params.pais);
                         element.completed = resTask.completed;
                     }
                 }
             }
-        });
 
-        console.log(`Se actualizaron ${contador} CUVS en elasticsearch`);
+        });
 
         return contador;
     }

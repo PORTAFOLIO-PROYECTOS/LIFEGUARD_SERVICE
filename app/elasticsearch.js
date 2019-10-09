@@ -4,8 +4,8 @@ const { elasticsearch } = require("./../config");
 
 module.exports = class Elasticsearch {
 
-    async validacion(params, cuv) {
-        let body = queryES.cuv(params.palanca, cuv);
+    async validacion(params, cuv, palanca) {
+        let body = queryES.cuv(palanca, cuv);
         let index = `${elasticsearch.indexName}${elasticsearch.indexVersion}_${params.pais.toLowerCase()}_${params.campania}`;
 
         let resultado = await ConnectionElastic.getConnection(params.pais).search({
@@ -17,7 +17,7 @@ module.exports = class Elasticsearch {
         return resultado.hits.total > 0 ? true : false;
     }
 
-    async obtenerTask(task, { pais }) {
+    async obtenerTask(task, pais) {
         
         return await ConnectionElastic.getConnection(pais).tasks.get({
             taskId: task

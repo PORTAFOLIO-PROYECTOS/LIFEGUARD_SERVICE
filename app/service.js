@@ -13,6 +13,6 @@ module.exports = class Service {
         
         console.log(`> Parametros ${JSON.stringify(params)}`);
         let res = await _lifeGuard.completeShell(params);
-        console.log(`> Terminado ${res}`);
+        console.log(`Se actualizaron ${res} CUVS en elasticsearch`);
     }
 }

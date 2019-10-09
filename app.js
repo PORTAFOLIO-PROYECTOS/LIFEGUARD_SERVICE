@@ -2,9 +2,10 @@ const Service = require("./app/service");
 const _service = new Service();
 
 let params = {
-    pais: "PE",
+    pais: "CO",
     campania: "201916",
-    palanca: "SR",
+    palanca: ["SR","OPM"],
+    //ODD,OPM,SR,LMG,OPT,HV,LAN,GND
     chunk: 5
 };
 

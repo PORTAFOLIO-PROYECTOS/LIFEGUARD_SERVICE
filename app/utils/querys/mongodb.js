@@ -13,9 +13,9 @@ const queryMongo = {
                 $match: {
                     "$and": [
                         { "CodigoCampania": campania },
-                        { "TipoPersonalizacion":  palanca},
+                        { "TipoPersonalizacion": { "$in": palanca } },
                         { "FlagConfig": true },
-                        { "Activo": true}
+                        { "Activo": true }
                     ]
                 }
             },
