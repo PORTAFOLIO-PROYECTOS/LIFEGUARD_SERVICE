@@ -10,16 +10,18 @@ class ConnectionElastic {
         return ConnectionElastic.instance;
     }
 
-    getConnection() {
-        return this.connection;
+    getConnection(pais) {
+        return this.connection[pais];
     }
 
     getCluster(pais) {
         for (let i = 0; i < config.elasticsearch.clusters.length; i++) {
             const item = config.elasticsearch.clusters[i];
-            return item.countries.find(x => x === pais) ? {
-                host: item.host
-            } : false;
+            if (item.countries.find(x => x === pais)) {
+                return {
+                    host: item.host
+                }
+            }
         }
         return false;
     }
@@ -27,15 +29,15 @@ class ConnectionElastic {
     createConnectionAsync(pais) {
         return new Promise((resolve, reject) => {
             try {
-                if (this.connection) {
-                    resolve(this.connection);
+                if (this.connection[pais]) {
+                    resolve(this.connection[pais]);
                 } else {
                     let item = this.getCluster(pais);
-                    this.connection = Elasticsearch.Client({
+                    this.connection[pais] = Elasticsearch.Client({
                         host: `${item.host}`,
                         log: ``
                     });
-                    resolve(this.connection);
+                    resolve(this.connection[pais]);
                 }
             } catch (error) {
                 console.error(error);

@@ -11,18 +11,20 @@ class ConnectionMongo {
         return ConnectionMongo.instance;
     }
 
-    getConnection() {
-        return this.connection;
+    getConnection(pais) {
+        return this.connection[pais];
     }
 
     getCluster(pais) {
         for (let i = 0; i < mongodb.clusters.length; i++) {
             let item = mongodb.clusters[i];
             let countries = Object.keys(item.countries);
-            return countries.find(x => x === pais) ? {
-                host: item.host,
-                database: item.countries[pais]
-            } : false;
+            if (countries.find(x => x === pais)) {
+                return {
+                    host: item.host,
+                    database: item.countries[pais]
+                }
+            }
         }
         return false;
     }
@@ -30,14 +32,14 @@ class ConnectionMongo {
     createConnectionAsync(pais) {
         return new Promise((resolve, reject) => {
             try {
-                if (this.connection) {
-                    resolve(this.connection);
+                if (this.connection[pais]) {
+                    resolve(this.connection[pais]);
                 } else {
                     let item = this.getCluster(pais);
 
-                    MongoClient.connect(item.host, { useNewUrlParser: true }).then(client => {
-                        this.connection = client.db(item.database);
-                        resolve(this.connection);
+                    MongoClient.connect(item.host, { useNewUrlParser: true, useUnifiedTopology: true }).then(client => {
+                        this.connection[pais] = client.db(item.database);
+                        resolve(this.connection[pais]);
                     }, (response) => {
                         console.log(`No se pudo conectar al host del país`);
                         reject(response)
@@ -55,8 +57,12 @@ class ConnectionMongo {
     async createConnection(pais) {
         return await this.createConnectionAsync(pais)
             .then(
-                () => { console.log("✓ correctamente => conexión Mongo"); },
-                () => { console.log("Ocurrió algo al tratar de conectar a Mongo"); })
+                () => {
+                    console.log("✓ correctamente => conexión Mongo");
+                },
+                () => {
+                    console.log("Ocurrió algo al tratar de conectar a Mongo");
+                })
             .catch((error) => {
                 console.log(error);
             });

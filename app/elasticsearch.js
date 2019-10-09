@@ -8,7 +8,7 @@ module.exports = class Elasticsearch {
         let body = queryES.cuv(params.palanca, cuv);
         let index = `${elasticsearch.indexName}${elasticsearch.indexVersion}_${params.pais.toLowerCase()}_${params.campania}`;
 
-        let resultado = await ConnectionElastic.getConnection().search({
+        let resultado = await ConnectionElastic.getConnection(params.pais).search({
             index,
             type: elasticsearch.type,
             body
@@ -17,9 +17,9 @@ module.exports = class Elasticsearch {
         return resultado.hits.total > 0 ? true : false;
     }
 
-    async obtenerTask(task) {
+    async obtenerTask(task, { pais }) {
         
-        return await ConnectionElastic.getConnection().tasks.get({
+        return await ConnectionElastic.getConnection(pais).tasks.get({
             taskId: task
         });
     }
@@ -50,7 +50,7 @@ module.exports = class Elasticsearch {
         };
 
         return new Promise((resolve, reject) => {
-            ConnectionElastic.getConnection().updateByQuery(request, (err, data) => {
+            ConnectionElastic.getConnection(params.pais).updateByQuery(request, (err, data) => {
                 if (err) {
                     reject(err);
                 }

@@ -23,8 +23,9 @@ module.exports = class LifeGuard {
                 const element = item[i];
                 let validacion = await _elasticsearch.validacion(params, element.cuv);
 
-                if (!validacion) tareas.push({ taskId: "", completed: true });
-                else {
+                if (!validacion) {
+                    tareas.push({ taskId: "", completed: true });
+                } else {
                     console.log("> CUV =>", element.cuv);
                     element.textoBusqueda = element.descripcion + " " + _utils.eliminarDuplicados(element.textoBusqueda);
                     element.orden = _utils.obtenerOrden(element.tipoPersonalizacion);
@@ -49,7 +50,7 @@ module.exports = class LifeGuard {
                 for (let j = 0; j < tareas.length; j++) {
                     const element = tareas[j];
                     if (!element.completed) {
-                        let resTask = await _elasticsearch.obtenerTask(element.taskId);
+                        let resTask = await _elasticsearch.obtenerTask(element.taskId, ...params);
                         element.completed = resTask.completed;
                     }
                 }
