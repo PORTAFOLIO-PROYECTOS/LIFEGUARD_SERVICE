@@ -2,7 +2,7 @@ const config = {
     enabledCountries: ["PE", "CL", "CR", "CO", "PA"],
     mongodb: {
         clusters: [{
-                host: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD01-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD01-shard-0&authSource=admin",
+                host: "mongodb://xxx",
                 countries: {
                     CO: "BelcorpColombia",
                     BO: "BelcorpBolivia",
@@ -11,7 +11,7 @@ const config = {
                 }
             },
             {
-                host: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD02-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD02-shard-0&authSource=admin",
+                host: "mongodb://xxx",
                 countries: {
                     PE: "BelcorpPeru",
                     CL: "BelcorpChile",
@@ -20,7 +20,7 @@ const config = {
                 }
             },
             {
-                host: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD03-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD03-shard-0&authSource=admin",
+                host: "mongodb://xxx",
                 countries: {
                     MX: "BelcorpMexico",
                     EC: "BelcorpEcuador",
@@ -35,11 +35,11 @@ const config = {
         indexVersion: "v2",
         type: "_doc",
         clusters: [{
-                host: "https://vpc-es-sbsearch-prd-a5xq7pyb6cvphjra33ojtejvwa.us-east-1.es.amazonaws.com/",
+                host: "xxx",
                 countries: ["CL", "CR", "PE"]
             },
             {
-                host: "https://vpc-es-sbsearch2-prd-zy7ytdwgfleiwpive3meis5lzy.us-east-1.es.amazonaws.com/",
+                host: "xxx",
                 countries: ["CO", "PA"]
             }
         ]
