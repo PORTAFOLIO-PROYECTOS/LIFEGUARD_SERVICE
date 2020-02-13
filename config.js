@@ -2,7 +2,7 @@ const config = {
     enabledCountries: ["PE", "CL", "CR", "CO", "PA"],
     mongodb: {
         clusters: [{
-                host: "mongodb://xxx",
+                host: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD01-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD01-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD01-shard-0&authSource=admin",
                 countries: {
                     CO: "BelcorpColombia",
                     BO: "BelcorpBolivia",
@@ -11,7 +11,7 @@ const config = {
                 }
             },
             {
-                host: "mongodb://xxx",
+                host: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD02-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD02-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD02-shard-0&authSource=admin",
                 countries: {
                     PE: "BelcorpPeru",
                     CL: "BelcorpChile",
@@ -20,7 +20,7 @@ const config = {
                 }
             },
             {
-                host: "mongodb://xxx",
+                host: "mongodb://usrmongotdapp:Mongo2018@PersonalizacionPRD03-shard-00-00-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-01-7arob.mongodb.net:27017,PersonalizacionPRD03-shard-00-02-7arob.mongodb.net:27017/admin?ssl=true&replicaSet=PersonalizacionPRD03-shard-0&authSource=admin",
                 countries: {
                     MX: "BelcorpMexico",
                     EC: "BelcorpEcuador",
@@ -35,11 +35,11 @@ const config = {
         indexVersion: "v2",
         type: "_doc",
         clusters: [{
-                host: "xxx",
+                host: "https://vpc-es-sbsearch3-prd-x6yhgte2h3opuz5lyog56xwtla.us-east-1.es.amazonaws.com",
                 countries: ["CL", "CR", "PE"]
             },
             {
-                host: "xxx",
+                host: "https://vpc-es-sbsearch2-prd-zy7ytdwgfleiwpive3meis5lzy.us-east-1.es.amazonaws.com",
                 countries: ["CO", "PA"]
             }
         ]
