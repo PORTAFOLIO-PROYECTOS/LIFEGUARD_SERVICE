@@ -1,4 +1,5 @@
-const Service = require("./app/service");
+const args = require('minimist')(process.argv.slice(2))
+const Service = require("./src/service");
 const _service = new Service();
 
 let params = {
@@ -9,4 +10,5 @@ let params = {
     chunk: 5
 };
 
-_service.exec(params);
+console.log(args.t);
+//_service.exec(params);

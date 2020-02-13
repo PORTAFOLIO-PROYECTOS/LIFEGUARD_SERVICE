@@ -15,4 +15,9 @@ module.exports = class Service {
         let res = await _lifeGuard.completeShell(params);
         console.log(`Se actualizaron ${res} CUVS en elasticsearch`);
     }
+
+    async tackUpdate(){
+        
+    }
+    
 }
